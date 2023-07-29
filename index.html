@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Of Object</title>
+</head>
+<body>
+    <pre>
+        <b>
+            Question:
+            let studentRecords = [ {name: 'John', id: 123, marks : 98 },
+                    {name: 'Baba', id: 101, marks : 23 },
+                    {name: 'yaga', id: 200, marks : 45 },
+                    {name: 'Wick', id: 115, marks : 75 } ] 
+        </b>
+    </pre>
+
+    <pre>
+        <b>
+            Q1. We are interested in retrieving only the students' names; all the names should be in caps.
+
+            ['JOHN', 'BABA', 'YAGA', 'WICK']
+        </b>
+
+
+        Solution:
+        let arr = studentRecords.map((item)=>item.name.toUpperCase())
+        console.log(arr)
+    </pre>
+
+
+
+    <pre>
+        <b>
+            Q2. "Suppose we have the same dataset as above but this time we want to get the details of students who scored more than 50 marks.
+
+            [{name: 'John', id: 123, marks: 98 },{name: 'Wick', id: 115, marks: 75 }]"
+        </b>
+
+        Solution:
+        let arr2 = studentRecords.filter((item)=>item.marks>50)
+        console.log(arr2)
+    </pre>
+
+
+    <pre>
+        <b>
+            Q3. Retrieve the details of students who scored more than 50 marks and have IDs greater than 120.
+        </b>
+
+        Solution:
+        let arr3 = studentRecords.filter((item)=>item.marks>50 && item.id>120)
+        console.log(arr3)
+    </pre>
+
+
+    <pre>
+        <b>
+            Q4. Consider the same scenario we have discussed above, but this time we would like to know the sum total of the marks of the students.
+        </b>
+
+        Solution:
+        let sum = 0;
+        let arr4 = studentRecords.map((item)=>item.marks)
+
+        arr4.forEach(num=>{
+            sum += num;
+        })
+        console.log(sum)
+
+
+        //as per above question scenario
+
+        let arr3 = studentRecords.filter((item)=>item.marks>50 && item.id>120)
+        console.log(arr3)
+
+        let sum = 0;
+        let arr4 = arr3.map((item)=>item.marks)
+
+        arr4.forEach(num=>{
+            sum += num;
+        })
+        console.log(sum)
+    </pre>
+
+
+    <pre>
+        <b>
+            Q5. This time we want to get only the names of the students who scored more than 50 marks from the same dataset used above.
+        </b>
+
+        Solution:
+        let arr6 = studentRecords.filter((item)=> item.marks>50)
+
+        let arr7 = arr6.map((item)=>item.name)
+        console.log(arr7)
+    </pre>
+
+
+    <pre>
+        <b>
+            Q6. This time we are required to print the sum of marks of the students with id > 120.
+        </b>
+
+        Solution:
+        let arr8 = studentRecords.filter((item)=>item.id>120)
+
+        let sum = 0;
+        let arr9 = arr8.map((item)=>item.marks)
+
+        arr9.forEach(num=>{
+            sum += num
+        })
+
+        console.log(sum)
+    </pre>
+
+
+    <pre>
+        <b>
+            Q7. This time we are required to print the total marks of the students with marks greater than 50 after a grace of 15 marks has been added to those students who scored less than 50.
+        </b>
+
+        Solution:
+        let sum = 0;
+        let arr10 = studentRecords.map((item)=>{
+            if(item.marks < 50){
+                item.marks+=15
+            }
+            return item
+        }).map((item)=> item.marks>50?sum+=item.marks:null)
+        console.log(sum)
+    </pre>
+
+
+    <pre>
+        <b>
+            Q8. Create 6 objects , each object will have name, class, roll no as properties. Store these objects in an array of objects. 
+        </b>
+
+        Solution:
+        class Student {
+            constructor(name,classname,rollno){
+                this.name = name;
+                this.classname = classname;
+                this.rollno = rollno;
+            }
+        }
+
+        const student1 = new Student("Bhanu Mitra", "class B",101);
+        const student2 = new Student("Sreekar", "class A",102);
+        const student3 = new Student("Praveen", "class C",103);
+        const student4 = new Student("Sharath", "class A",104);
+        const student5 = new Student("Karthik", "class B",105);
+        const student6 = new Student("Lava Kumar", "class C",106);
+
+        const studentsArray = [student1, student2, student3, student4, student5, student6]
+
+        console.log(studentsArray);
+    </pre>
+    
+</body>
+</html>
